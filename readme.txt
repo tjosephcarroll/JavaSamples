@@ -1,4 +1,4 @@
-Test a JDBC connection outside of Cache. To use this utility, please extract the files, and from the command line.
+Test a Java connection outside of Cache.
 
 To Compile:
 
@@ -12,4 +12,4 @@ On Windows:
 
 java -cp <classpath>;. <name>
 
-where <classpath> is the path and file name of the JDBC Driver .jar file.
+where <classpath> is the path and file name of the correct .jar file.
