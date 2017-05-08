@@ -1,6 +1,8 @@
 /*
- * JDBCQuery.java 
+ * Callable Statement Code Example
+ * javac CallableStatementTest.java
  * 
+ * java -cp /intersystems/cache/dev/java/lib/JDK18/cache-jdbc-2.0.0.jar:. CallableStatementTest
  */
 
 import java.io.*;
