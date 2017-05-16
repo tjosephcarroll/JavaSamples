@@ -13,7 +13,7 @@ public class CallableStatementTest{
   
     public static void main(String[] args){
  		try {
-			String connectionurl = "jdbc:Cache://172.16.208.77:1972/SAMPLES";
+			String connectionurl = "jdbc:Cache://172.16.208.69:1972/SAMPLES/myjdbc.log";
 			String driver = "com.intersys.jdbc.CacheDriver";
 			String username = "_SYSTEM";
 			String password = "SYS";
@@ -23,6 +23,12 @@ public class CallableStatementTest{
  			Connection conn = DriverManager.getConnection(connectionurl,username,password);
 			System.out.println("connected.");
 
+			//reproducing "CF" function error
+			//conn.getMetaData().getClientInfoProperties();
+			
+			
+			
+			
 			CallableStatement statement = conn.prepareCall(call);
 			statement.setString(1, "J");
  			java.sql.ResultSet result = statement.executeQuery();
