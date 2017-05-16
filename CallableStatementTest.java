@@ -13,7 +13,7 @@ public class CallableStatementTest{
   
     public static void main(String[] args){
  		try {
-			String connectionurl = "jdbc:Cache://172.16.208.69:1972/SAMPLES/myjdbc.log";
+			String connectionurl = "jdbc:Cache://127.0.0.1:1972/SAMPLES/myjdbc.log";
 			String driver = "com.intersys.jdbc.CacheDriver";
 			String username = "_SYSTEM";
 			String password = "SYS";

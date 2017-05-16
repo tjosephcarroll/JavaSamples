@@ -17,7 +17,7 @@ public class TestStoredProcedure {
 	public static void main(String[] args){
 		try{
 			//establish the connection
-			String connectionString = "jdbc:Cache://172.16.208.69:1972/SAMPLES/myjdbc.log";
+			String connectionString = "jdbc:Cache://127.0.0.1:1972/SAMPLES/myjdbc.log";
 			String usernameString = "_SYSTEM";
 			String passwordString = "SYS";
 			
