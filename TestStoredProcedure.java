@@ -26,11 +26,10 @@ public class TestStoredProcedure {
 			System.out.print("Connected!");
 			System.out.println();
 			
-			//Stored procedure call?
+			//Stored procedure call
 			String query = "call Sample.SP_Sample_By_Name()";
 			
 			//prepared statement
-			// THIS WORKS!
 			PreparedStatement pstmt = connectionOBJ.prepareStatement(query);
 			java.sql.ResultSet rs = pstmt.executeQuery();
 			System.out.println("Prepared Statment Results:");
@@ -62,14 +61,14 @@ public class TestStoredProcedure {
  				System.out.println();
  			}
  			
- 		
+ 			connectionOBJ.close();
 			
 		}
 		catch (Exception ex) {
  			System.out.println("Exception: " +
                                ex.getClass().getName()
                                + ": " + ex.getMessage());
- 		}
+		}
 		
 	}
 	
