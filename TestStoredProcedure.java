@@ -29,8 +29,21 @@ public class TestStoredProcedure {
 			//Stored procedure call?
 			String query = "call Sample.SP_Sample_By_Name()";
 			
-			//prepared statment
-			
+			//prepared statement
+			PreparedStatement pstmt = connectionOBJ.prepareStatement(query);
+			java.sql.ResultSet rs = pstmt.executeQuery();
+			System.out.println("Prepared Statment Results:");
+ 			ResultSetMetaData metadata = rs.getMetaData();
+ 			int count = metadata.getColumnCount();
+			int rowcount=0;
+ 			while (rs.next()) {
+				System.out.print(++rowcount+". ");
+ 				for (int i=1; i<=count; i++) {
+ 					System.out.print(rs.getString(i) + "  ");
+ 				}
+ 				System.out.println();
+ 			}
+ 			rs.close();
 			
 			
 		}
