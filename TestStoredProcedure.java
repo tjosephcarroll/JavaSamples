@@ -18,18 +18,19 @@ public class TestStoredProcedure {
 		try{
 			//establish the connection
 			String connectionString = "jdbc:Cache://172.16.208.69:1972/SAMPLES/myjdbc.log";
-			//String driverString = "com.intersys.jdbc.CacheDriver";
 			String usernameString = "_SYSTEM";
 			String passwordString = "SYS";
 			
 			System.out.print("Connecting to server...");
 			Connection connectionOBJ = DriverManager.getConnection(connectionString,usernameString,passwordString);
 			System.out.print("Connected!");
+			System.out.println();
 			
 			//Stored procedure call?
 			String query = "call Sample.SP_Sample_By_Name()";
 			
 			//prepared statement
+			// THIS WORKS!
 			PreparedStatement pstmt = connectionOBJ.prepareStatement(query);
 			java.sql.ResultSet rs = pstmt.executeQuery();
 			System.out.println("Prepared Statment Results:");
@@ -44,7 +45,24 @@ public class TestStoredProcedure {
  				System.out.println();
  			}
  			rs.close();
-			
+ 			
+ 			//Regular statement
+ 			//This does not work
+ 			Statement stmt = connectionOBJ.createStatement();
+ 			java.sql.ResultSet rs1 = stmt.executeQuery(query);
+ 			System.out.print("Regular Statement Results:");
+ 			ResultSetMetaData metadata1 = rs1.getMetaData();
+ 			int count1 = metadata1.getColumnCount();
+ 			int rowcount1 = 0;
+ 			while (rs1.next()){
+ 				System.out.print(++rowcount1+". ");
+ 				for (int j=1; j<=count1; j++){
+ 					System.out.print(rs1.getString(j) + "  ");
+ 				}
+ 				System.out.println();
+ 			}
+ 			
+ 		
 			
 		}
 		catch (Exception ex) {
